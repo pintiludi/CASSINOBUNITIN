@@ -112,8 +112,8 @@ const Home = () => {
         {/* Casino Info */}
         <div className="text-center mt-16">
           <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-8 border border-yellow-400/30 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-4">🎲 INFORMAÇÕES DO CASSINO 🎲</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white">
+            <h3 className="text-2xl font-bold text-yellow-400 mb-6">🎲 INFORMAÇÕES DO CASSINO 🎲</h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-white mb-8">
               <div className="space-y-2">
                 <div className="text-3xl">🎁</div>
                 <div className="font-bold">Créditos Grátis</div>
@@ -128,6 +128,30 @@ const Home = () => {
                 <div className="text-3xl">🎯</div>
                 <div className="font-bold">5 Jogos</div>
                 <div className="text-sm opacity-75">Slot, Blackjack, Roleta, Poker e Dados</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl">👨‍💻</div>
+                <div className="font-bold">Desenvolvido com ❤️</div>
+                <div className="text-sm opacity-75">Por um desenvolvedor apaixonado</div>
+              </div>
+            </div>
+            
+            {/* Creator Section */}
+            <div className="border-t border-yellow-400/30 pt-6">
+              <div className="bg-gradient-to-r from-purple-900/50 via-blue-900/50 to-indigo-900/50 rounded-xl p-6 border border-purple-500/30">
+                <div className="text-4xl mb-3">🎮</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent mb-2">
+                  CRIADO POR
+                </div>
+                <div className="text-3xl font-extrabold text-white mb-2">
+                  🎰 CASCUDAO FELIZ ☺️ 🎰
+                </div>
+                <div className="text-sm text-yellow-400 font-semibold">
+                  ✨ Desenvolvedor de jogos • Especialista em diversão • Mestre dos cassinos virtuais ✨
+                </div>
+                <div className="mt-4 text-xs text-white/60">
+                  "Criando experiências incríveis de casino desde 2025" 🚀
+                </div>
               </div>
             </div>
           </div>
