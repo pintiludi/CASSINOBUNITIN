@@ -9,9 +9,16 @@ const Home = () => {
   const { setCurrentGame } = useGame();
 
   const handlePlayGame = (gameId) => {
-    const game = games.find(g => g.id === gameId);
-    setCurrentGame(game);
-    navigate(`/${gameId}`);
+    console.log('handlePlayGame called with gameId:', gameId);
+    try {
+      const game = games.find(g => g.id === gameId);
+      console.log('Found game:', game);
+      setCurrentGame(game);
+      console.log('Navigating to:', `/${gameId}`);
+      navigate(`/${gameId}`);
+    } catch (error) {
+      console.error('Error in handlePlayGame:', error);
+    }
   };
 
   useEffect(() => {
