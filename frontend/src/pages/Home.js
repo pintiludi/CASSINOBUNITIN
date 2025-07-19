@@ -1,30 +1,7 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import GameCard from '../components/GameCard';
-import { games } from '../mock';
-import { useGame } from '../contexts/GameContext';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const { setCurrentGame } = useGame();
-
-  const handlePlayGame = (gameId) => {
-    console.log('handlePlayGame called with gameId:', gameId);
-    try {
-      const game = games.find(g => g.id === gameId);
-      console.log('Found game:', game);
-      setCurrentGame(game);
-      console.log('Navigating to:', `/${gameId}`);
-      navigate(`/${gameId}`);
-    } catch (error) {
-      console.error('Error in handlePlayGame:', error);
-    }
-  };
-
-  useEffect(() => {
-    setCurrentGame(null);
-  }, [setCurrentGame]);
-
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Animated background */}
@@ -55,40 +32,86 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Featured Game */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center text-white mb-6">
-            🌟 JOGO EM DESTAQUE 🌟
-          </h2>
-          <div className="flex justify-center">
-            <div className="w-full max-w-md">
-              <GameCard 
-                game={games.find(g => g.featured)} 
-                onPlay={handlePlayGame}
-              />
+        {/* Games Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          
+          {/* Slot Machine */}
+          <Link to="/slot-machine" className="block">
+            <div className="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 border-4 border-yellow-400 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-purple-500/25">
+              <div className="text-center">
+                <div className="text-6xl mb-4 animate-bounce">🎰</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Slot Machine</h3>
+                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold text-xs px-3 py-1 rounded-full mb-3">
+                  ⭐ PRINCIPAL
+                </div>
+                <p className="text-gray-300 text-sm mb-4">Jogo principal de caça-níqueis com jackpots incríveis</p>
+                <div className="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-black font-bold py-3 px-6 rounded-lg">
+                  🎰 JOGAR AGORA!
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </Link>
 
-        {/* All Games Grid */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center text-white mb-8">
-            🎯 TODOS OS JOGOS 🎯
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {games.map((game) => (
-              <GameCard 
-                key={game.id} 
-                game={game} 
-                onPlay={handlePlayGame}
-              />
-            ))}
-          </div>
+          {/* Blackjack */}
+          <Link to="/blackjack" className="block">
+            <div className="bg-gradient-to-br from-gray-900 via-red-900 to-black border-2 border-red-600 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-2xl">
+              <div className="text-center">
+                <div className="text-6xl mb-4 animate-bounce">♠️</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Blackjack</h3>
+                <p className="text-gray-300 text-sm mb-4">O clássico 21 - vença o dealer!</p>
+                <div className="bg-gradient-to-r from-red-600 to-red-800 text-white font-bold py-3 px-6 rounded-lg">
+                  🎯 JOGAR
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Roulette */}
+          <Link to="/roulette" className="block">
+            <div className="bg-gradient-to-br from-gray-900 via-red-900 to-black border-2 border-red-600 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-2xl">
+              <div className="text-center">
+                <div className="text-6xl mb-4 animate-bounce">🎲</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Roleta</h3>
+                <p className="text-gray-300 text-sm mb-4">Aposte sua sorte na roda da fortuna</p>
+                <div className="bg-gradient-to-r from-red-600 to-red-800 text-white font-bold py-3 px-6 rounded-lg">
+                  🎯 JOGAR
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Poker */}
+          <Link to="/poker" className="block">
+            <div className="bg-gradient-to-br from-gray-900 via-red-900 to-black border-2 border-red-600 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-2xl">
+              <div className="text-center">
+                <div className="text-6xl mb-4 animate-bounce">♥️</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Poker</h3>
+                <p className="text-gray-300 text-sm mb-4">Video Poker - forme a melhor mão</p>
+                <div className="bg-gradient-to-r from-red-600 to-red-800 text-white font-bold py-3 px-6 rounded-lg">
+                  🎯 JOGAR
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Craps */}
+          <Link to="/craps" className="block">
+            <div className="bg-gradient-to-br from-gray-900 via-red-900 to-black border-2 border-red-600 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-2xl">
+              <div className="text-center">
+                <div className="text-6xl mb-4 animate-bounce">🎯</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Dados</h3>
+                <p className="text-gray-300 text-sm mb-4">Role os dados e ganhe grande!</p>
+                <div className="bg-gradient-to-r from-red-600 to-red-800 text-white font-bold py-3 px-6 rounded-lg">
+                  🎯 JOGAR
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Casino Info */}
-        <div className="text-center">
-          <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-8 border border-yellow-400/30">
+        <div className="text-center mt-16">
+          <div className="bg-black/50 backdrop-blur-sm rounded-2xl p-8 border border-yellow-400/30 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-yellow-400 mb-4">🎲 INFORMAÇÕES DO CASSINO 🎲</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white">
               <div className="space-y-2">
