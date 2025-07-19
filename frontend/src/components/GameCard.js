@@ -58,6 +58,7 @@ const GameCard = ({ game, onPlay }) => {
             console.log('Button clicked for game:', game.id);
             onPlay(game.id);
           }}
+          style={{ cursor: 'pointer', pointerEvents: 'auto' }}
           className={`w-full font-bold text-lg py-3 transition-all duration-300 transform hover:scale-105 ${
             game.featured
               ? 'bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 hover:from-yellow-400 hover:via-orange-400 hover:to-red-400 text-black shadow-lg hover:shadow-yellow-500/25'
